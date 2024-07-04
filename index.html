@@ -25,6 +25,24 @@
             zoom: 10
         });
 
+map.on('load', function () {
+    map.addSource('tegalluar', {
+        'type': 'geojson',
+        'data': 'https://weakunion.github.io/geojson-mapbox-demo-soreang/tegalluar.geojson'  // Update the path if necessary
+    });
+
+    map.addLayer({
+        'id': 'tegalluar-layer',
+        'type': 'fill',  // Adjust this depending on your data type
+        'source': 'tegalluar',
+        'layout': {},
+        'paint': {
+            'fill-color': '#888888',
+            'fill-opacity': 0.4
+        }
+    });
+});
+
         // Load gaps GeoJSON
         map.on('load', function () {
             map.addSource('gaps', {
